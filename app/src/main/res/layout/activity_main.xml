@@ -6,46 +6,100 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:columnCount="2"
-    android:rowCount="10"
+    android:rowCount="8"
     tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/tagTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TAG"
-        android:layout_row="0"
-        android:layout_column="0"
-        android:layout_columnSpan="2"/>
-
-    <EditText
-        android:layout_row="1"
-        android:layout_column="0"
-        android:layout_columnSpan="2"
-        android:id="@+id/tagEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="fill_horizontal"/>
 
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="490dp"
-        android:layout_row="2"
-        android:layout_rowSpan="7"
+        android:layout_height="wrap_content"
+        android:layout_row="0"
+        android:layout_rowSpan="1"
         android:layout_column="0"
         android:layout_columnSpan="2"
         android:columnCount="2"
-        android:rowCount="3">
-
+        android:rowCount="2">
 
         <TextView
-            android:id="@+id/textoTextView"
-            android:layout_width="410dp"
-            android:layout_height="490dp"
+            android:id="@+id/tagTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TAG"
             android:layout_row="0"
             android:layout_column="0"
-            android:text="Excelente faculdade!
-                      Excelente professores" />
+            android:layout_columnSpan="2"/>
+
+        <EditText
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_columnSpan="1"
+            android:id="@+id/tagEditText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"/>
+
+        <Button
+            android:id="@+id/tagButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buscar"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:onClick="buscarTag"/>
+    </GridLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="410dp"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mensagensRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            app:reverseLayout="true"
+            app:stackFromEnd="true" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="5"
+        android:layout_rowSpan="1"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:columnCount="2"
+        android:rowCount="2">
+
+        <TextView
+            android:id="@+id/novoTextoTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_columnSpan="2"
+            android:text="Digite o novo texto abaixo"/>
+
+        <EditText
+            android:id="@+id/mensagemEditText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill_horizontal" />
+
+        <Button
+            android:id="@+id/enviarButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enviar"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:onClick="enviarMensagem"/>
 
     </GridLayout>
 
@@ -54,7 +108,7 @@
         android:layout_width="205dp"
         android:layout_height="wrap_content"
         android:text="Texto"
-        android:layout_row="9"
+        android:layout_row="6"
         android:layout_column="0"
         android:onClick="exibeTexto"/>
 
@@ -63,7 +117,7 @@
         android:layout_width="205dp"
         android:layout_height="wrap_content"
         android:text="Fotos"
-        android:layout_row="9"
+        android:layout_row="6"
         android:layout_column="1"
         android:onClick="exibeFotos"/>
 

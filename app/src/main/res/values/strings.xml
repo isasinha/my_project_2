@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">my_project</string>
+    <string name="data_nome">Em %s diz:</string>
+    <string name="digite_sua_mensagem">Digite a sua mensagem</string>
 </resources>
