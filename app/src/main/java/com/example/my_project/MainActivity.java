@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -23,6 +24,8 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private DocumentReference tagMsgsReference;
     private CollectionReference subCOLtagMsgsReference;
     private EditText tagEditText;
+    private TextView tagSelecionadaTextView;
     private String tag;
 
     @Override
@@ -55,11 +59,12 @@ public class MainActivity extends AppCompatActivity {
         mensagensRecyclerView.setLayoutManager(linearLayoutManager);
         mensagemEditText = findViewById(R.id.mensagemEditText);
         tagEditText = findViewById(R.id.tagEditText);
+        tagSelecionadaTextView = findViewById(R.id.tagSelecionadaTextView);
 
     }
 
     private void setupFirebase (){
-        if(tag != "" || tag != null) {
+        if(tag != "" && tag != null) {
             mMsgsReference = FirebaseFirestore.getInstance().collection("mensagens");
             tagMsgsReference = mMsgsReference.document(tag);
             subCOLtagMsgsReference = tagMsgsReference.collection("envios");
@@ -69,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-//        setupFirebase();
     }
 
     private void getRemoteMsgs (){
@@ -92,19 +96,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void buscarTag (View view){
+    int lba = tagEditText.getText().toString().length();
+    if(lba > 0) {
         tag = tagEditText.getText().toString();
+        tagSelecionadaTextView.setText(tag);
         tagEditText.setText("");
         setupFirebase();
+    }else{
+        Toast.makeText(this, "Digitar uma tag", Toast.LENGTH_SHORT).show();
+    }
     }
 
     public void enviarMensagem (View view){
-        String mensagem = mensagemEditText.getText().toString();
-        Mensagem m = new Mensagem (new Date(), mensagem);
-        esconderTeclado(view);
-//        mMsgsReference.add(m);
-//        tagMsgsReference.set(m);
-        subCOLtagMsgsReference.add(m);
-        mensagemEditText.setText("");
+        if(tag != null && tag != "") {
+            String mensagem = mensagemEditText.getText().toString();
+            Mensagem m = new Mensagem (new Date(), mensagem);
+            esconderTeclado(view);
+    //        mMsgsReference.add(m);
+    //        tagMsgsReference.set(m);
+            subCOLtagMsgsReference.add(m);
+            mensagemEditText.setText("");
+        }else{
+            Toast.makeText(this, "A tag não foi selecionada", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void esconderTeclado (View v){
@@ -133,8 +147,7 @@ class MensagemViewHolder extends RecyclerView.ViewHolder {
     }
 }
 
-class MensagemAdapter extends RecyclerView.Adapter
-        <MensagemViewHolder>{
+class MensagemAdapter extends RecyclerView.Adapter<MensagemViewHolder>{
     private List<Mensagem> mensagens;
     private Context context;
     MensagemAdapter (List<Mensagem> mensagens, Context context){
