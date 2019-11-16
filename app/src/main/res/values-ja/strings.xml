@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TweetPad</string>
+    <string name="cant_take_pic">写真は撮影されませんでした。もう一度お試しください</string>
+    <string name="digite_sua_mensagem">メッセージを入力してください</string>
+    <string name="no_pic_taken">写真は撮影されませんでした</string>
+    <string name="enviar">提出する</string>
+    <string name="fotos">写真</string>
+    <string name="texto">テキスト</string>
+    <string name="buscar">検索する</string>
+    <string name="digite_texto">下に新しいテキストを入力してください</string>
+    <string name="tag">"選択されたTAG: "</string>
+    <string name="digitar_tag">タグを入力してください</string>
+    <string name="sem_tag">タグが選択されていません</string>
+    <string name="poster">ポスター</string>
+</resources>

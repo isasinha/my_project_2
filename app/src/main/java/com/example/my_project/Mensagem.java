@@ -1,8 +1,10 @@
 package com.example.my_project;
 
+import android.net.Uri;
+
 import java.util.Date;
 
-class Mensagem implements Comparable<Mensagem>{
+class Mensagem implements Comparable<Mensagem> {
 
     @Override
     public int compareTo(Mensagem mensagem) {
@@ -18,6 +20,7 @@ class Mensagem implements Comparable<Mensagem>{
     }
 
     public Mensagem(){
+
     }
 
     public String getTexto() {

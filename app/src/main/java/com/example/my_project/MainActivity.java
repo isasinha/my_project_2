@@ -32,7 +32,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private RecyclerView mensagensRecyclerView;
     private MensagemAdapter adapter;

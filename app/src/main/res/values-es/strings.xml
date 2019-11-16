@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TweetPad</string>
+    <string name="cant_take_pic">La foto no fue tomada, intente nuevamente</string>
+    <string name="digite_sua_mensagem">Ingrese su mensaje</string>
+    <string name="no_pic_taken">La foto no fue tomada</string>
+    <string name="enviar">Enviar</string>
+    <string name="fotos">FOTOS</string>
+    <string name="texto">TEXTO</string>
+    <string name="buscar">Buscar</string>
+    <string name="digite_texto">Ingrese un nuevo texto a continuación</string>
+    <string name="tag">"TAG seleccionada: "</string>
+    <string name="digitar_tag">Ingrese una tag</string>
+    <string name="sem_tag">Tag no seleccionada</string>
+    <string name="poster">CARTEL</string>
+</resources>

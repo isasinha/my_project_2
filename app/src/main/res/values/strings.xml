@@ -1,5 +1,15 @@
 <resources>
-    <string name="app_name">my_project</string>
-    <string name="data_nome">Em %s diz:</string>
-    <string name="digite_sua_mensagem">Digite a sua mensagem</string>
+    <string name="app_name">TweetPad</string>
+    <string name="digite_sua_mensagem">Enter your message</string>
+    <string name="no_pic_taken">The photo was not taken</string>
+    <string name="cant_take_pic">The photo was not taken, try again</string>
+    <string name="enviar">Send</string>
+    <string name="buscar">Search</string>
+    <string name="texto">TEXT</string>
+    <string name="fotos">PICTURES</string>
+    <string name="digite_texto">Enter the new text below</string>
+    <string name="tag">"Selected TAG: "</string>
+    <string name="digitar_tag">Enter a tag</string>
+    <string name="sem_tag">Tag not selected</string>
+    <string name="poster">POSTER</string>
 </resources>

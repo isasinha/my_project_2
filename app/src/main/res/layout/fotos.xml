@@ -1,93 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GridLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:columnCount="2"
-android:rowCount="10"
-tools:context=".MainActivity">
-
-<TextView
-    android:id="@+id/tagTextView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="TAG"
-    android:layout_row="0"
-    android:layout_column="0"
-    android:layout_columnSpan="2"/>
-
-<EditText
-    android:layout_row="1"
-    android:layout_column="0"
-    android:layout_columnSpan="2"
-    android:id="@+id/tagEditText"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="fill_horizontal"/>
-
-<GridLayout
-    android:layout_width="match_parent"
-    android:layout_height="490dp"
-    android:layout_row="2"
-    android:layout_rowSpan="7"
-    android:layout_column="0"
-    android:layout_columnSpan="2"
+    android:layout_height="match_parent"
     android:columnCount="2"
-    android:rowCount="3">
+    android:rowCount="8"
+    tools:context=".FotosActivity">
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="205dp"
-        android:layout_height="120dp"
+    <TextView
+        android:id="@+id/telaTextView"
+        android:layout_width="147dp"
+        android:layout_height="wrap_content"
         android:layout_row="0"
         android:layout_column="0"
-        app:srcCompat="@drawable/dragao"
-        android:onClick="exibeDetalheFoto"/>
+        android:layout_columnSpan="2"
+        android:layout_rowSpan="1"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:text="@string/fotos" />
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="205dp"
-        android:layout_height="120dp"
-        android:layout_row="0"
-        android:layout_column="1"
-        app:srcCompat="@drawable/thor" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="205dp"
-        android:layout_height="120dp"
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_row="1"
+        android:layout_rowSpan="1"
         android:layout_column="0"
-        app:srcCompat="@drawable/aladdin" />
+        android:layout_columnSpan="2"
+        android:columnCount="2"
+        android:rowCount="2">
 
-    <ImageButton
-        android:id="@+id/imageButton4"
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_rowSpan="1"
+            android:layout_column="0"
+            android:layout_columnSpan="2"
+            android:columnCount="2"
+            android:rowCount="1">
+
+            <TextView
+                android:id="@+id/tagTextView"
+                android:layout_width="147dp"
+                android:layout_height="match_parent"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:text="@string/tag" />
+
+        <TextView
+            android:id="@+id/tagSelecionadaTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="1" />
+        </GridLayout>
+
+        <EditText
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_columnSpan="1"
+            android:id="@+id/tagEditText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"/>
+
+        <Button
+            android:id="@+id/tagButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/buscar"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:onClick="buscarTag"/>
+    </GridLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="410dp"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:layoutDirection="ltr"
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fotoRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            app:reverseLayout="true"
+            app:stackFromEnd="true"
+            android:layoutDirection="ltr"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="5"
+        android:layout_rowSpan="1"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:columnCount="2"
+        android:rowCount="1">
+
+        <ImageButton
+            android:id="@+id/tirarFotoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:onClick="tirarFoto"
+            app:srcCompat="@drawable/ic_photo_camera_black_24dp"/>
+
+    </GridLayout>
+
+    <Button
+        android:id="@+id/textButton"
         android:layout_width="205dp"
-        android:layout_height="120dp"
-        android:layout_row="1"
+        android:layout_height="wrap_content"
+        android:text="@string/texto"
+        android:layout_row="6"
+        android:layout_column="0"
+        android:onClick="exibeTexto"/>
+
+    <Button
+        android:id="@+id/pictureButton"
+        android:layout_width="205dp"
+        android:layout_height="wrap_content"
+        android:text="@string/fotos"
+        android:layout_row="6"
         android:layout_column="1"
-        app:srcCompat="@drawable/reileao" />
-</GridLayout>
-
-<Button
-    android:id="@+id/textButton"
-    android:layout_width="205dp"
-    android:layout_height="wrap_content"
-    android:text="Texto"
-    android:layout_row="9"
-    android:layout_column="0"
-    android:onClick="exibeTexto"/>
-
-<Button
-    android:id="@+id/pictureButton"
-    android:layout_width="205dp"
-    android:layout_height="wrap_content"
-    android:text="Fotos"
-    android:layout_row="9"
-    android:layout_column="1"
-    android:onClick="exibeFotos"/>
-
+        android:onClick="exibeFotos"/>
 
 </GridLayout>
